@@ -34,6 +34,6 @@ module.exports = {
       }
     });
 
-    message.reply("Bot jaga voice. Basecamp aman.");
+    message.reply("Guwe jaga voice, udeh selawww!");
   }
 };
