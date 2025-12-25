@@ -1,0 +1,76 @@
+[
+  { "result": "MENANG", "agent": "Jett", "reason": "Entry bersih, aim lagi panas" },
+  { "result": "KALAH", "agent": "Jett", "reason": "Instalock tapi mati duluan" },
+    { "result": "KALAH", "agent": "Jett", "reason": "Bloon ngedash ke depan" },
+
+  { "result": "MENANG", "agent": "Phoenix", "reason": "Flash kepake, duel dapet" },
+  { "result": "KALAH", "agent": "Phoenix", "reason": "Flash sendiri, mati sendiri" },
+  { "result": "KALAH", "agent": "Phoenix", "reason": "Dongo banget demi dah" },
+
+
+  { "result": "MENANG", "agent": "Reyna", "reason": "Aim on point, snowball kill" },
+  { "result": "KALAH", "agent": "Reyna", "reason": "Ego gede, entry tanpa info" },
+
+  { "result": "MENANG", "agent": "Raze", "reason": "Utility rusuh, space kebuka" },
+  { "result": "KALAH", "agent": "Raze", "reason": "Satchel bunuh diri" },
+
+  { "result": "MENANG", "agent": "Yoru", "reason": "Fake jalan, timing pinter" },
+  { "result": "KALAH", "agent": "Yoru", "reason": "Teleport ketauan musuh" },
+
+  { "result": "MENANG", "agent": "Neon", "reason": "Entry cepet, musuh panik" },
+  { "result": "KALAH", "agent": "Neon", "reason": "Lari doang, aim ketinggalan" },
+
+  { "result": "MENANG", "agent": "Iso", "reason": "Shield kepake, duel enak" },
+  { "result": "KALAH", "agent": "Iso", "reason": "Shield telat aktif" },
+
+  { "result": "MENANG", "agent": "Omen", "reason": "Smoke rapi, timing dapet" },
+  { "result": "KALAH", "agent": "Omen", "reason": "Smoke nutup temen" },
+
+  { "result": "MENANG", "agent": "Brimstone", "reason": "Post-plant solid" },
+  { "result": "KALAH", "agent": "Brimstone", "reason": "Ult kepencet kepagian" },
+
+  { "result": "MENANG", "agent": "Viper", "reason": "Control map jalan" },
+  { "result": "KALAH", "agent": "Viper", "reason": "Gas abis di saat krusial" },
+
+  { "result": "MENANG", "agent": "Astra", "reason": "Utility global kepake" },
+  { "result": "KALAH", "agent": "Astra", "reason": "Kebanyakan mikir, telat rotate" },
+
+  { "result": "MENANG", "agent": "Harbor", "reason": "Wall nutup angle penting" },
+  { "result": "KALAH", "agent": "Harbor", "reason": "Utility ga sinkron tim" },
+
+  { "result": "MENANG", "agent": "Clove", "reason": "Smoke after-death clutch" },
+  { "result": "KALAH", "agent": "Clove", "reason": "Overconfident pas low HP" },
+
+  { "result": "MENANG", "agent": "Sage", "reason": "Heal & revive tepat waktu" },
+  { "result": "KALAH", "agent": "Sage", "reason": "Wall malah ngeblok tim" },
+
+  { "result": "MENANG", "agent": "Cypher", "reason": "Info map kebaca semua" },
+  { "result": "KALAH", "agent": "Cypher", "reason": "Trap gampang dihancurin" },
+
+  { "result": "MENANG", "agent": "Killjoy", "reason": "Setup site susah ditembus" },
+  { "result": "KALAH", "agent": "Killjoy", "reason": "Ult kebuang percuma" },
+
+  { "result": "MENANG", "agent": "Chamber", "reason": "Aim tajem, pick awal dapet" },
+  { "result": "KALAH", "agent": "Chamber", "reason": "Miss shot, ga ada impact" },
+
+  { "result": "MENANG", "agent": "Deadlock", "reason": "Utility delay musuh efektif" },
+  { "result": "KALAH", "agent": "Deadlock", "reason": "Setup kebaca" },
+
+  { "result": "MENANG", "agent": "Sova", "reason": "Info drone & dart akurat" },
+  { "result": "KALAH", "agent": "Sova", "reason": "Scan ga kena apa-apa" },
+
+  { "result": "MENANG", "agent": "Breach", "reason": "Flash & stun bikin chaos" },
+  { "result": "KALAH", "agent": "Breach", "reason": "Flash temen sendiri" },
+
+  { "result": "MENANG", "agent": "Skye", "reason": "Info hidup, entry enak" },
+  { "result": "KALAH", "agent": "Skye", "reason": "Burung ditembak mulu" },
+
+  { "result": "MENANG", "agent": "KAY/O", "reason": "Suppress tepat sasaran" },
+  { "result": "KALAH", "agent": "KAY/O", "reason": "Knife ga kena value" },
+
+  { "result": "MENANG", "agent": "Fade", "reason": "Info gelap kebuka" },
+  { "result": "KALAH", "agent": "Fade", "reason": "Utility gampang di-clear" },
+
+  { "result": "MENANG", "agent": "Gekko", "reason": "Plant & retake gampang" },
+  { "result": "KALAH", "agent": "Gekko", "reason": "Utility diambil musuh" }
+]
