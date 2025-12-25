@@ -12,7 +12,7 @@ module.exports = {
       .sort((a, b) => b.points - a.points)
       .slice(0, 5);
 
-    let text = "🏆 **Top Basecamp Valorant**\n";
+    let text = "🏆 **Top Basecamp PAMLORANT**\n";
     sorted.forEach((u, i) => {
       text += `${i + 1}. ${u.username} — ${u.points} pts\n`;
     });
