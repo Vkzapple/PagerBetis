@@ -2,8 +2,14 @@ const {
   joinVoiceChannel,
   getVoiceConnection,
   VoiceConnectionStatus,
-  entersState
+  entersState,
+  createAudioPlayer,
+  AudioPlayerStatus
 } = require("@discordjs/voice");
+
+const {createSilenceResource} = require("../utils/silence");
+
+let player;
 
 module.exports = {
   name: "!jaga",
@@ -23,17 +29,17 @@ module.exports = {
       selfDeaf: true
     });
 
-    connection.on(VoiceConnectionStatus.Disconnected, async () => {
-      try {
-        await Promise.race([
-          entersState(connection, VoiceConnectionStatus.Signalling, 5_000),
-          entersState(connection, VoiceConnectionStatus.Connecting, 5_000)
-        ]);
-      } catch {
-        connection.destroy();
-      }
-    });
 
-    message.reply("Guwe jaga voice, udeh selawww!");
+    if (!player){
+      player = createAudioPlayer();
+    }
+    // play silentnya 
+    connection.subscribe(player);
+    player.play(createSilenceResource());
+
+    player.on(AudioPlayerStatus.Idle, ()=> {
+      player.play(createSilenceResource());
+    });
+    message.reply("bot udah masuk, selaww aja bang!");
   }
 };
