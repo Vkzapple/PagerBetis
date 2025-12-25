@@ -1,13 +1,47 @@
-const { join } = require("../utils/voiceState");
+const {
+  joinVoiceChannel,
+  getVoiceConnection,
+  VoiceConnectionStatus,
+  entersState
+} = require("@discordjs/voice");
 
 module.exports = {
   name: "!jaga",
-  execute(message) {
-    if (!message.member.voice.channel) {
-      return message.reply("Masuk voice dulu bang 🗣️");
+  async execute(message) {
+    const vc = message.member.voice.channel;
+    if (!vc) return message.reply("Masuk voice dulu bang");
+
+    let connection = getVoiceConnection(vc.guild.id);
+
+    if (!connection) {
+      connection = joinVoiceChannel({
+        channelId: vc.id,
+        guildId: vc.guild.id,
+        adapterCreator: vc.guild.voiceAdapterCreator,
+        selfDeaf: false   // 🔴 PENTING
+      });
     }
 
-    join(message);
-    message.reply("👮 Bot jaga basecamp. Mau kosong mau rame, gua stay.");
+    // 🔁 AUTO RECONNECT
+    connection.on(VoiceConnectionStatus.Disconnected, async () => {
+      try {
+        await Promise.race([
+          entersState(connection, VoiceConnectionStatus.Signalling, 5_000),
+          entersState(connection, VoiceConnectionStatus.Connecting, 5_000),
+        ]);
+        // berhasil reconnect
+      } catch {
+        // reconnect gagal → join ulang
+        connection.destroy();
+        joinVoiceChannel({
+          channelId: vc.id,
+          guildId: vc.guild.id,
+          adapterCreator: vc.guild.voiceAdapterCreator,
+          selfDeaf: false
+        });
+      }
+    });
+
+    message.reply("bot udah masuk, selaww aja bang!");
   }
 };
