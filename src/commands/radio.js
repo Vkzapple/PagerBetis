@@ -16,6 +16,12 @@ module.exports = {
     const vc = message.member.voice.channel;
     if (!vc) return message.reply("Masuk voice dulu bang 🎧");
 
+    // 🔒 URL HARD-CODE (AMAN)
+    const RADIO_URL = "https://www.youtube.com/watch?v=0w9jYtZ9lUw";
+    if (!RADIO_URL) {
+      return message.reply("❌ URL radio belum diset.");
+    }
+
     let connection = getVoiceConnection(vc.guild.id);
     if (!connection) {
       connection = joinVoiceChannel({
@@ -31,20 +37,19 @@ module.exports = {
       connection.subscribe(player);
     }
 
-    const URL = "https://youtu.be/l0qOQs49c7s?si=ecQtWD_uPRFtDL3X";
-
     async function loop() {
-      const stream = await play.stream(URL);
+      const stream = await play.stream(RADIO_URL);
       const resource = createAudioResource(stream.stream, {
         inputType: stream.type
       });
       player.play(resource);
     }
 
+    // bersihin listener biar ga dobel
     player.removeAllListeners(AudioPlayerStatus.Idle);
     player.on(AudioPlayerStatus.Idle, loop);
 
     await loop();
-    message.reply("📻 Radio nyala. Lagu diloop terus.");
+    message.reply("Radio nyala. Lagu diloop terus.");
   }
 };
