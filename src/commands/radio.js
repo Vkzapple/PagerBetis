@@ -1,4 +1,3 @@
-const play = require("play-dl");
 const {
   joinVoiceChannel,
   getVoiceConnection,
@@ -12,6 +11,8 @@ let player;
 module.exports = {
   name: "!radio",
   async execute(message) {
+    const play = require("play-dl");
+
     const vc = message.member.voice.channel;
     if (!vc) return message.reply("Masuk voice dulu bang 🎧");
 
@@ -30,10 +31,9 @@ module.exports = {
       connection.subscribe(player);
     }
 
-    const URL = "https://youtu.be/l0qOQs49c7s?si=ecQtWD_uPRFtDL3X"; 
+    const URL = "https://youtu.be/l0qOQs49c7s?si=ecQtWD_uPRFtDL3X";
 
-
-    async function playLoop() {
+    async function loop() {
       const stream = await play.stream(URL);
       const resource = createAudioResource(stream.stream, {
         inputType: stream.type
@@ -41,12 +41,10 @@ module.exports = {
       player.play(resource);
     }
 
-    // loop terus
-    player.on(AudioPlayerStatus.Idle, () => {
-      playLoop();
-    });
+    player.removeAllListeners(AudioPlayerStatus.Idle);
+    player.on(AudioPlayerStatus.Idle, loop);
 
-    await playLoop();
-    message.reply("Radio nyala doel");
+    await loop();
+    message.reply("📻 Radio nyala. Lagu diloop terus.");
   }
 };
