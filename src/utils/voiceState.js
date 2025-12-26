@@ -21,7 +21,6 @@ function getState(guild) {
       mode: "idle"
     };
 
-    // kalau musik selesai → balik silent
     music.on(AudioPlayerStatus.Idle, () => {
       const s = states[guild.id];
       if (s.connection) {
@@ -50,7 +49,6 @@ function join(message) {
     });
   }
 
-  // default: silent keep alive
   state.connection.subscribe(state.keepAlive);
   state.keepAlive.play(createSilenceResource());
   state.mode = "idle";

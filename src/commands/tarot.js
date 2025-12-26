@@ -15,7 +15,7 @@ module.exports = {
     saveData(data);
 
     message.reply(
-      `🔮 **Tarot Ranked**\n` +
+      `🔮 **Tarot Compe Palok**\n` +
       `Hasil: **${draw.result}**\n` +
       `Penyebab: **${draw.agent}** (${draw.reason})\n` +
       `(+3 pts)`

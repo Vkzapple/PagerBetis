@@ -16,7 +16,6 @@ module.exports = {
     const vc = message.member.voice.channel;
     if (!vc) return message.reply("Masuk voice dulu bang 🎧");
 
-    // 🔒 URL HARD-CODE (AMAN)
     const RADIO_URL = "https://www.youtube.com/watch?v=0w9jYtZ9lUw";
     if (!RADIO_URL) {
       return message.reply("❌ URL radio belum diset.");
@@ -44,8 +43,6 @@ module.exports = {
       });
       player.play(resource);
     }
-
-    // bersihin listener biar ga dobel
     player.removeAllListeners(AudioPlayerStatus.Idle);
     player.on(AudioPlayerStatus.Idle, loop);
 

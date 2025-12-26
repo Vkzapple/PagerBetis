@@ -25,7 +25,7 @@ module.exports = {
       inputType: stream.type
     });
 
-    // PRIORITY MUSIC
+  
     state.connection.subscribe(state.music);
     state.music.play(resource);
     state.mode = "music";

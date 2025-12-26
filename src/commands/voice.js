@@ -18,20 +18,18 @@ module.exports = {
         channelId: vc.id,
         guildId: vc.guild.id,
         adapterCreator: vc.guild.voiceAdapterCreator,
-        selfDeaf: false   // 🔴 PENTING
+        selfDeaf: false   
       });
     }
 
-    // 🔁 AUTO RECONNECT
     connection.on(VoiceConnectionStatus.Disconnected, async () => {
       try {
         await Promise.race([
           entersState(connection, VoiceConnectionStatus.Signalling, 5_000),
           entersState(connection, VoiceConnectionStatus.Connecting, 5_000),
         ]);
-        // berhasil reconnect
-      } catch {
-        // reconnect gagal → join ulang
+
+      } catch { 
         connection.destroy();
         joinVoiceChannel({
           channelId: vc.id,

@@ -72,5 +72,80 @@
   { "result": "KALAH", "agent": "Fade", "reason": "Utility gampang di-clear" },
 
   { "result": "MENANG", "agent": "Gekko", "reason": "Plant & retake gampang" },
-  { "result": "KALAH", "agent": "Gekko", "reason": "Utility diambil musuh" }
+  { "result": "KALAH", "agent": "Gekko", "reason": "Utility diambil musuh" },
+  
+  { "result": "MENANG", "agent": "Jett", "reason": "Op first blood terus, mental musuh runtuh" },
+  { "result": "KALAH", "agent": "Jett", "reason": "Dash ke smoke, isinya 3 orang" },
+
+  { "result": "MENANG", "agent": "Reyna", "reason": "Snowball kill, clutch satu-satu" },
+  { "result": "KALAH", "agent": "Reyna", "reason": "Overpeek tiap round, mati mulu" },
+
+  { "result": "MENANG", "agent": "Phoenix", "reason": "Ult dipake pinter, entry aman" },
+  { "result": "KALAH", "agent": "Phoenix", "reason": "Ult malah buat kabur" },
+
+  { "result": "MENANG", "agent": "Raze", "reason": "Satchel entry rapi, site kebuka" },
+  { "result": "KALAH", "agent": "Raze", "reason": "Boom bot mental sendiri" },
+
+  { "result": "MENANG", "agent": "Neon", "reason": "Sprint entry bikin chaos" },
+  { "result": "KALAH", "agent": "Neon", "reason": "Lari doang, aim keteteran" },
+
+  { "result": "MENANG", "agent": "Iso", "reason": "Shield kepake semua duel" },
+  { "result": "KALAH", "agent": "Iso", "reason": "Shield nyala pas udah ditembak" },
+
+  { "result": "MENANG", "agent": "Omen", "reason": "Smoke timing dewa" },
+  { "result": "KALAH", "agent": "Omen", "reason": "Smoke malah nutup vision tim" },
+
+  { "result": "MENANG", "agent": "Brimstone", "reason": "Post-plant molly textbook" },
+  { "result": "KALAH", "agent": "Brimstone", "reason": "Ult kepencet pas rotate" },
+
+  { "result": "MENANG", "agent": "Viper", "reason": "Control map bikin musuh nyerah" },
+  { "result": "KALAH", "agent": "Viper", "reason": "Gas abis di round krusial" },
+
+  { "result": "MENANG", "agent": "Astra", "reason": "Gravity well clutch banget" },
+  { "result": "KALAH", "agent": "Astra", "reason": "Kebanyakan mikir, telat eksekusi" },
+
+  { "result": "MENANG", "agent": "Harbor", "reason": "Wall nutup angle penting" },
+  { "result": "KALAH", "agent": "Harbor", "reason": "Utility ga sinkron sama tim" },
+
+  { "result": "MENANG", "agent": "Clove", "reason": "Smoke after-death clutch" },
+  { "result": "KALAH", "agent": "Clove", "reason": "Overconfident pas HP seupil" },
+
+  { "result": "MENANG", "agent": "Sage", "reason": "Revive ngerubah momentum" },
+  { "result": "KALAH", "agent": "Sage", "reason": "Wall ngeblok rotate tim" },
+
+  { "result": "MENANG", "agent": "Cypher", "reason": "Info map kebaca semua" },
+  { "result": "KALAH", "agent": "Cypher", "reason": "Trap gampang dihancurin" },
+
+  { "result": "MENANG", "agent": "Killjoy", "reason": "Setup site susah ditembus" },
+  { "result": "KALAH", "agent": "Killjoy", "reason": "Ult kebuang percuma" },
+
+  { "result": "MENANG", "agent": "Chamber", "reason": "Pick awal tiap round" },
+  { "result": "KALAH", "agent": "Chamber", "reason": "Miss op, impact nol" },
+
+  { "result": "MENANG", "agent": "Deadlock", "reason": "Utility delay retake efektif" },
+  { "result": "KALAH", "agent": "Deadlock", "reason": "Setup kebaca musuh" },
+
+  { "result": "MENANG", "agent": "Sova", "reason": "Dart & drone akurat" },
+  { "result": "KALAH", "agent": "Sova", "reason": "Scan ga kena apa-apa" },
+
+  { "result": "MENANG", "agent": "Breach", "reason": "Stun bikin musuh panik" },
+  { "result": "KALAH", "agent": "Breach", "reason": "Flash temen sendiri" },
+
+  { "result": "MENANG", "agent": "Skye", "reason": "Info hidup, entry lancar" },
+  { "result": "KALAH", "agent": "Skye", "reason": "Burung ditembak mulu" },
+
+  { "result": "MENANG", "agent": "KAY/O", "reason": "Knife suppress tepat sasaran" },
+  { "result": "KALAH", "agent": "KAY/O", "reason": "Knife ga dapet value" },
+
+  { "result": "MENANG", "agent": "Fade", "reason": "Info gelap kebuka semua" },
+  { "result": "KALAH", "agent": "Fade", "reason": "Utility gampang di-clear" },
+
+  { "result": "MENANG", "agent": "Gekko", "reason": "Plant & retake gampang" },
+  { "result": "KALAH", "agent": "Gekko", "reason": "Utility diambil musuh" },
+
+  { "result": "KALAH", "agent": "ALL", "reason": "Temen AFK satu" },
+  { "result": "MENANG", "agent": "ALL", "reason": "Musuh toxic, mental drop" },
+  { "result": "KALAH", "agent": "ALL", "reason": "Lose streak bawaan" },
+  { "result": "MENANG", "agent": "ALL", "reason": "Auto win karena matchmaking kasian" }
+
 ]
