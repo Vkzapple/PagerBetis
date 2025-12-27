@@ -1,31 +1,47 @@
-const agents = require("../data/agents.json");
-const { loadData, saveData, getUser } = require("../utils/storage");
-const { addPoints } = require("../utils/points");
-const { randomBetawi } = require("../utils/betawi");
+const fs = require("fs");
+const path = require("path");
+
+const agents = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "../data/agents.json"), "utf-8")
+);
+
+const partyPools = new Map();
+
+const DEFAULT_POOL = [
+  "duelist",
+  "duelist",
+  "sentinel",
+  "controller",
+  "initiator"
+];
+
+function getRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
 module.exports = {
   name: "!agent",
-  execute(message, args) {
-    const role = args[0]?.toLowerCase();
-    let pool = [];
+  execute(message) {
+    const guildId = message.guild.id;
 
-    if (role && agents[role]) {
-      pool = agents[role];
-    } else {
-      pool = Object.values(agents).flat();
+    if (!partyPools.has(guildId) || partyPools.get(guildId).length === 0) {
+      partyPools.set(guildId, [...DEFAULT_POOL]);
     }
 
-    const pick = pool[Math.floor(Math.random() * pool.length)];
+    const pool = partyPools.get(guildId);
 
-    const data = loadData();
-    const user = getUser(data, message.guild.id, message.author);
+    const roleIndex = Math.floor(Math.random() * pool.length);
+    const role = pool.splice(roleIndex, 1)[0];
 
-    user.agent += 1;
-    addPoints(user, 5);
-    saveData(data);
+    const agentList = agents[role];
+    const agent = getRandom(agentList);
+
+    partyPools.set(guildId, pool);
 
     message.reply(
-      `🎭 Agent lu: **${pick}**\n${randomBetawi()} (+5 pts)`
+      `🎮 **Agent kamu:** **${agent}**\n` +
+      `🧠 **Role:** ${role.toUpperCase()}\n` +
+      `👥 Slot tersisa: ${pool.length}`
     );
   }
 };

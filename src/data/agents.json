@@ -1,6 +1,6 @@
 {
-  "duelist": ["Jett", "Phoenix", "Reyna", "Raze", "Yoru", "Neon", "Iso"],
+  "duelist": ["Jett", "Reyna", "Phoenix", "Raze", "Yoru", "Neon", "Iso"],
+  "sentinel": ["Sage", "Cypher", "Killjoy", "Deadlock", "Chamber"],
   "controller": ["Omen", "Brimstone", "Viper", "Astra", "Harbor", "Clove"],
-  "sentinel": ["Cypher", "Killjoy", "Sage", "Chamber", "Deadlock"],
   "initiator": ["Sova", "Breach", "Skye", "KAY/O", "Fade", "Gekko"]
 }
