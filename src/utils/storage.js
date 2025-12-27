@@ -11,30 +11,18 @@ function ensureFile() {
 
 function loadData() {
   ensureFile();
-  return JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
+  try {
+    const raw = fs.readFileSync(DATA_PATH, "utf8");
+    if (!raw.trim()) return {};
+    return JSON.parse(raw);
+  } catch {
+    fs.writeFileSync(DATA_PATH, JSON.stringify({}, null, 2));
+    return {};
+  }
 }
 
 function saveData(data) {
   fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2));
 }
 
-function getUser(data, guildId, user) {
-  if (!data[guildId]) data[guildId] = {};
-
-  if (!data[guildId][user.id]) {
-    data[guildId][user.id] = {
-      username: user.username,
-      points: 0,
-      agent: 0,
-      tarot: 0
-    };
-  }
-
-  return data[guildId][user.id];
-}
-
-module.exports = {
-  loadData,
-  saveData,
-  getUser
-};
+module.exports = { loadData, saveData };

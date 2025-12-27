@@ -1,16 +1,12 @@
 const fs = require("fs");
 const path = require("path");
+const { loadData, saveData } = require("../utils/storage");
 
 const agents = JSON.parse(
   fs.readFileSync(path.join(__dirname, "../data/agents.json"), "utf-8")
 );
 
-const USERS_PATH = path.join(__dirname, "../data/users.json");
-
-if (!fs.existsSync(USERS_PATH)) {
-  fs.writeFileSync(USERS_PATH, JSON.stringify({}, null, 2));
-}
-
+// pool role per server
 const partyPools = new Map();
 
 const DEFAULT_POOL = [
@@ -28,7 +24,7 @@ const ROLE_POINTS = {
   sentinel: 6
 };
 
-function getRandom(arr) {
+function random(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
@@ -38,30 +34,35 @@ module.exports = {
     const guildId = message.guild.id;
     const userId = message.author.id;
 
-    const users = JSON.parse(fs.readFileSync(USERS_PATH, "utf-8"));
-    if (!users[userId]) {
-      users[userId] = { points: 0 };
-    }
-
+    // init pool
     if (!partyPools.has(guildId) || partyPools.get(guildId).length === 0) {
       partyPools.set(guildId, [...DEFAULT_POOL]);
     }
 
     const pool = partyPools.get(guildId);
 
+    // ambil role random
     const roleIndex = Math.floor(Math.random() * pool.length);
     const role = pool.splice(roleIndex, 1)[0];
 
-    const agent = getRandom(agents[role]);
+    const agent = random(agents[role]);
+    const gainedPts = ROLE_POINTS[role];
 
-    const gainedPts = ROLE_POINTS[role] || 5;
-    users[userId].points += gainedPts;
+    // simpan poin
+    const data = loadData();
+    if (!data[guildId]) data[guildId] = {};
+    if (!data[guildId][userId]) {
+      data[guildId][userId] = {
+        username: message.author.username,
+        points: 0
+      };
+    }
 
-    fs.writeFileSync(USERS_PATH, JSON.stringify(users, null, 2));
-    partyPools.set(guildId, pool);
+    data[guildId][userId].points += gainedPts;
+    saveData(data);
 
     message.reply(
-      ` **Agent:** **${agent}**\n` +
+      `**Agent:** **${agent}**\n` +
       ` **Role:** ${role.toUpperCase()}\n` +
       ` **+${gainedPts} pts**\n` +
       ` Slot party tersisa: ${pool.length}`

@@ -1,24 +1,42 @@
-const tarot = require("../data/tarot.json");
-const { loadData, saveData, getUser } = require("../utils/storage");
-const { addPoints } = require("../utils/points");
+const fs = require("fs");
+const path = require("path");
+const { loadData, saveData } = require("../utils/storage");
+
+const tarot = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "../data/tarot.json"), "utf-8")
+);
+
+function random(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
 module.exports = {
   name: "!tarot",
   execute(message) {
-    const draw = tarot[Math.floor(Math.random() * tarot.length)];
+    const guildId = message.guild.id;
+    const userId = message.author.id;
+
+    const result = random(tarot);
+    const gainedPts = result.result === "MENANG" ? 10 : 3;
 
     const data = loadData();
-    const user = getUser(data, message.guild.id, message.author);
+    if (!data[guildId]) data[guildId] = {};
+    if (!data[guildId][userId]) {
+      data[guildId][userId] = {
+        username: message.author.username,
+        points: 0
+      };
+    }
 
-    user.tarot += 1;
-    addPoints(user, 3);
+    data[guildId][userId].points += gainedPts;
     saveData(data);
 
     message.reply(
-      `🔮 **Tarot Compe Palok**\n` +
-      `Hasil: **${draw.result}**\n` +
-      `Penyebab: **${draw.agent}** (${draw.reason})\n` +
-      `(+3 pts)`
+      ` **TAROT COMPE PAMLORANT**\n` +
+      ` Hasil: **${result.result}**\n` +
+      ` Agent: **${result.agent}**\n` +
+      ` Alasan: ${result.reason}\n` +
+      ` **+${gainedPts} pts**`
     );
   }
 };

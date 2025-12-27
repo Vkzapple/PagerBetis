@@ -11,7 +11,6 @@ module.exports = {
     }
 
     const users = Object.values(data[guildId]);
-
     if (users.length === 0) {
       return message.reply("Belom ada data bang.");
     }
