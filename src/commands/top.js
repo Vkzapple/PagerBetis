@@ -4,11 +4,19 @@ module.exports = {
   name: "!top",
   execute(message) {
     const data = loadData();
-    const guild = data[message.guild.id];
+    const guildId = message.guild.id;
 
-    if (!guild) return message.reply("Belom ada data bang.");
+    if (!data[guildId]) {
+      return message.reply("Belom ada data bang.");
+    }
 
-    const sorted = Object.values(guild)
+    const users = Object.values(data[guildId]);
+
+    if (users.length === 0) {
+      return message.reply("Belom ada data bang.");
+    }
+
+    const sorted = users
       .sort((a, b) => b.points - a.points)
       .slice(0, 5);
 
