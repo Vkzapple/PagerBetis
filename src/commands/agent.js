@@ -39,9 +39,9 @@ module.exports = {
     partyPools.set(guildId, pool);
 
     message.reply(
-      `🎮 **Agent kamu:** **${agent}**\n` +
-      `🧠 **Role:** ${role.toUpperCase()}\n` +
-      `👥 Slot tersisa: ${pool.length}`
+      ` **Agent Lu:** **${agent}**\n` +
+      ` **Role:** ${role.toUpperCase()}\n` +
+      ` Slot tersisa: ${pool.length}`
     );
   }
 };
